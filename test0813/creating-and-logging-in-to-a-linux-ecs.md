@@ -17,7 +17,7 @@ ECSs are more cost-effective than physical servers. Within minutes, you can obta
 
     The ECS creation page is displayed.
     
-    **ssh***Username***@***EIP*
+    **ssh** *Username***@***EIP*
 
     > ![](public_sys-resources/icon-note.gif) **NOTE:** 
 
