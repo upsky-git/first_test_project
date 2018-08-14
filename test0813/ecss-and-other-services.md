@@ -9,6 +9,8 @@
 -   Auto Scaling \(AS\)
 
     Automatically adjusts ECS service resources based on the configured AS policies. This improves resource usage and reduces resource costs.
+    
+    **ssh** *Username*<>**@**<>*EIP*
 
 -   Elastic Load Balance \(ELB\)
 
