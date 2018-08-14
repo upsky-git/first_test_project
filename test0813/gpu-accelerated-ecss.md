@@ -155,7 +155,6 @@ Select your required GPU-accelerated ECS type and specifications.
     2.  Obtain the Product Activation Key \(PAK\) from the email indicating successful registration with NVIDIA.
 
         **Figure 1** PAK<a name="en-us_topic_0035470098_fig4249148201328"></a>        
-        
         ![](figures/pak.png "PAK")
 
     3.  Enter the PAK obtained in step [2](#en-us_topic_0035470098_li6493917120957) on the **Redeem Product Activation Keys** page and click **Redeem**.
