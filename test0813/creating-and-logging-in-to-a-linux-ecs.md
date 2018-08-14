@@ -16,6 +16,8 @@ ECSs are more cost-effective than physical servers. Within minutes, you can obta
 4.  Click **Create ECS**.
 
     The ECS creation page is displayed.
+    
+    **ssh***Username***@***EIP*
 
     > ![](public_sys-resources/icon-note.gif) **NOTE:** 
 
