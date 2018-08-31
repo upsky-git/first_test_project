@@ -1,46 +1,34 @@
-# Creating a Security Administrator<a name="topic_0126272025_1"></a>
+# 新节点7<a name="ZH-CN_TOPIC_0128729320"></a>
 
-This section explains how to create a security administrator to manage the users in your account.
+## 问题描述<a name="section10235653141311"></a>
 
->![](public_sys-resources/icon-note.gif) **NOTE:** 
->-   A password can be used to log in to the management console and enable development tools \(such as APIs, the CLI, and SDK\) that can access cloud services through password authentication. This is the recommended option because the security administrator manages users.
->-   Access keys are used to enable development tools \(such as APIs, the CLI, and SDK\) that can access cloud services through key authentication.
+采用XEN虚拟化技术的Linux弹性云服务器，发生kdump时系统卡住无响应，不能自动重启恢复。例如，用户执行命令**echo c\>/proc/sysrq-trigger**主动触发kdump功能，Linux弹性云服务器卡住，如[图1](#fig1529410182516)所示。
 
-## Procedure<a name="section1640244412315"></a>
+**图 1**  触发kdump功能<a name="fig1529410182516"></a>  
+![](figures/触发kdump功能.png "触发kdump功能")
 
-1.  Choose  **Management & Deployment** \> **Identity and Access Management**.
-2.  At the upper left of the main menu bar, click  **Console**.
+>![](public_sys-resources/icon-note.gif) **说明：**   
+>一般情况下，公有云提供的公共镜像已禁用kdump功能。使用公共镜像创建的弹性云服务器不存在该问题。  
 
-     ![](figures/en-us_image_0122467560.jpg) 
+## 可能原因<a name="section11577101171411"></a>
 
-3.  Click the username in the upper right corner and select  **Identity and Access Management**  from the drop-down list.
+-   部分版本的Linux内核与XEN虚拟化平台不适配。
+-   内核不支持soft\_rest的弹性云服务器，开启kdump服务时，弹性云服务器在dump时会卡死。
 
-     ![](figures/en-us_image_0109949357.jpg) 
+## 处理方法<a name="section85651919262"></a>
 
-4.  In the navigation pane, choose  **User**.
-5.  On the  **User** page, click **Create User**.
-6.  On the  **Create User** page, enter **Username**.
-7.  Select  **Password** for **Credential Type**.
+**方法一：禁用kdump功能**
 
-    >![](public_sys-resources/icon-note.gif) **NOTE:**  
-    >-   A password can be used to log in to the management console and enable development tools \(such as APIs, the CLI, and SDK\) that can access cloud services through password authentication. This is the recommended option because the security administrator manages users.
-    >-   Access keys are used to enable development tools \(such as APIs, the CLI, and SDK\) that can access cloud services through key authentication.
+以CentOS 7.2为例：
 
-8.  In the  **User Groups** area, select **admin**  from the drop-down list.
-9.  Click  **Next**.
-10. Select  **Set manually** for **Password Type**.
+1.  强制重启弹性云服务器。
+    1.  登录控制台。
+    2.  选择“计算 \> 弹性云服务器”。
+    3.  在弹性云服务器列表中，勾选卡住的弹性云服务器，并单击“重启”。
+    4.  勾选“强制重启”/“强制关机”，确定强制重启/强制关机弹性云服务器云主机。
+    5.  单击“确定”。
+2.  关闭kdump功能。
+    1.  以root帐号登录强制重启后的弹性云服务器。
+    2.  执行以下命令，禁用kdump功能。
 
-    >![](public_sys-resources/icon-note.gif) **NOTE:**  
-    >A security administrator can log in to the management console and use IAM to manage users. You are advised to select  **Set manually** for **Password Type** when you create a security administrator for your account. If you create a security administrator for another user, you are advised to select **Set at first login** for **Password Type**  instead so that the user can set their own password.
-
-11. Enter the email address, mobile number, password, and confirm password.
-
-    >![](public_sys-resources/icon-note.gif) **NOTE:** 
-    >-   You are advised to enter an email address or mobile number for the security administrator. These will be used as the security administrator's credentials.
-    >-   The password must meet the following requirements:  
-    >    It must be 6 to 32 characters long.  
-    >    It must contain at least 2 of the following character types: uppercase letters, lowercase letters, digits, and special characters \(!"\#$%&'\(\)\*+,-./:;<=\>?@\[\]^\`\{\_|\}~ and spaces\).  
-    >    It cannot be the username or the username spelled backwards. For example, if the username is  **A12345**, the password cannot be **A12345**, **a12345**, **54321A** or **54321a**.  
-
-12. Select  **Require Password Reset** to ensure that the security administrator is forced to change the password the first time the administrator logs in. The **Require Password Reset**  option is selected by default. It is recommended that you retain the default setting to ensure that the security administrator account password is set by the security administrator, preventing password leakage.
-13. Click  **OK**.
+        **service kdump stop**
