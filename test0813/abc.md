@@ -26,7 +26,7 @@ This section explains how to create a security administrator to manage the users
 9.  Click  **Next**.
 10. Select  **Set manually** for **Password Type**.
 
-    >![](public_sys-resources/icon-note.gif) **说明：**  
+    >![](public_sys-resources/icon-note.gif) **说明：**    
     >A security administrator can log in to the management console and use IAM to manage users. You are advised to select  **Set manually** for **Password Type** when you create a security administrator for your account. If you create a security administrator for another user, you are advised to select **Set at first login** for **Password Type**  instead so that the user can set their own password.
 
 11. Enter the email address, mobile number, password, and confirm password.
