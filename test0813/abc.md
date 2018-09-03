@@ -1,1 +1,1 @@
-domain\:bus\:slot.function
+`domain:bus:slot.function`
