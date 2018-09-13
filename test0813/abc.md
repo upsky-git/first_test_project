@@ -2,7 +2,6 @@
 
 -   Linux
     -   The image that is used to create ECSs must have Cloud-Init installed.
-
     -   The user data to be injected must be less than or equal to 32 KB.
     -   If user data is uploaded as text, the data can contain only ASCII characters. If user data is uploaded using a file, the file can contain any characters and the file size cannot exceed 32 KB.
     -   The image that is used to create ECSs must be a public image, a private image created based on a public image, or a private image with Cloud-Init installed.
